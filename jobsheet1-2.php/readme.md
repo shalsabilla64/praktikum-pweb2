@@ -158,6 +158,18 @@ $dosen->aksesFitur(); // Output: Mengakses fitur dosen.
 $mahasiswa->aksesFitur(); // Output: Mengakses fitur mahasiswa.
 ?>
 ```
+## output jobsheet 1
+1. Class dan Object<br> 
+![Screenshot (22)](https://github.com/user-attachments/assets/a2b9a3f3-b60b-41fb-989c-ca95362f6984)
+2. Encapsulation<br>
+![Screenshot (23)](https://github.com/user-attachments/assets/bdd6680f-b80d-4d4a-b84d-990d4f5cb73b)
+3. Inheritance<br>
+![Screenshot (24)](https://github.com/user-attachments/assets/443d6d1f-b325-4d9c-a59a-c97beec70fb2)
+4. Polymorphism<br>
+![Screenshot (25)](https://github.com/user-attachments/assets/8dcc1fe0-9421-4fbc-a0ab-8af9e24325fe)
+5. Abstraction<br>
+![Screenshot (26)](https://github.com/user-attachments/assets/dcca060a-ef53-43cd-92bb-bc13de3c9274)
+
 
 
 
