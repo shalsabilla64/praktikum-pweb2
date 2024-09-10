@@ -129,6 +129,19 @@ $dosen1->tampilkanDosen();
  ```
 - Bagian kode ini menunjukkan cara membuat dan menggunakan objek dari kelas Dosen. Objek dosen1 diinstansiasi dengan data spesifik dan kemudian metode tampilkanDosen() dipanggil untuk menampilkan informasi terkait dosen tersebut.
 
+## output jobsheet 2
+1. Membuat class dan object<br>
+![Screenshot (32)](https://github.com/user-attachments/assets/53145e3e-005d-4cac-ad05-53e43e5136a4)
+2. Implementasi Constructor<br>
+![Screenshot (33)](https://github.com/user-attachments/assets/3dcbd043-e46a-480e-9cd4-4119975daeda)
+3. Membuat Metode Tambahan<br>
+![Screenshot (34)](https://github.com/user-attachments/assets/c79e0f5e-37fe-4e2c-a91e-50abde615b5b)
+4. Penggunaan Atribut dan Metode<br>
+![Screenshot (35)](https://github.com/user-attachments/assets/851bbcf1-206c-4137-8d24-f41c273473bc)
+5. Tugas 3-4<br>
+![Screenshot (36)](https://github.com/user-attachments/assets/00d2317a-02ad-448a-947e-3610766e979a)
+
+
 
 
 
