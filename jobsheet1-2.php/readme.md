@@ -134,9 +134,7 @@ $mahasiswa->aksesFitur(); // Output: Mengakses fitur mahasiswa.
 
 - implementasi kelas dosen
 ```sh
-// Kelas Dosen yang mewarisi Pengguna
 class Dosen extends Pengguna {
-    // Implementasi metode abstrak dari kelas Pengguna
     public function aksesFitur() {
         echo "Mengakses fitur dosen.<br>";
     }
@@ -144,14 +142,26 @@ class Dosen extends Pengguna {
 ```
 - implementasi dari kelas mahasiswa
 ```sh
-// Kelas Mahasiswa yang mewarisi Pengguna
 class Mahasiswa extends Pengguna {
-    // Implementasi metode abstrak dari kelas Pengguna
     public function aksesFitur() {
         echo "Mengakses fitur mahasiswa.<br>";
     }
 }
 ```
+## Demonstrasikan dengan memanggil metode aksesFitur() dari objek yang diinstansiasi.
+```sh
+<?php
+$dosen = new Dosen();
+$mahasiswa = new Mahasiswa();
+
+$dosen->aksesFitur(); // Output: Mengakses fitur dosen.
+$mahasiswa->aksesFitur(); // Output: Mengakses fitur mahasiswa.
+?>
+```
+
+
+
+
 
 
 
