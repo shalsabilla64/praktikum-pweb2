@@ -30,8 +30,7 @@ atribut adalah spesifikasi yang mendefinisikan properti dari suatu objek
 ## jenis jenis attribute:
 - private : attribut yang hanya bisa di akses oleh kelas itu sendiri
 - public : attribut yang bisa di akses langsung oleh kelas turunan maupun objek
-- protected : attribut yang hanya dapat diakses dari dalam kelas itu sendiri dan dari dalam kelas turunannya,tetapi tida dari luar kelas
-
+- protected : attribut yang hanya dapat diakses dari dalam kelas itu sendiri dan dari dalam kelas turunannya
 ## Metode 
 ```sh
  public function tampilkanData() {
