@@ -40,18 +40,11 @@ atribut adalah spesifikasi yang mendefinisikan properti dari suatu objek
 - metode adalah fungsi yang didefinisikan di dalam sebuah kelas yang digunakan untuk melakukan operasi atau aksi pada objek dari kelas tersebut.
 - Metode tampilkanData() berfungsi untuk menampilkan nilai dari atribut nama, nim, dan jurusan dari objek Mahasiswa. Metode ini memberikan cara untuk mengakses dan menampilkan data yang disimpan dalam objek dengan cara yang terorganisir dan terstruktur, memudahkan dalam pengujian dan pengelolaan data.
 
-## Constructor dan Instansiasi
-
-## Constructor 
-- metode khusus dalam pemrograman berorientasi objek (OOP) yang secara otomatis dipanggil saat sebuah objek dibuat (diinstansiasi) dari suatu kelas
-```sh
- public function __construct
-```
 ## Instansiasi
 - Instansiasi adalah proses membuat sebuah objek dari sebuah kelas dalam pemrograman berorientasi objek (OOP).
 ```sh
-$mahasiswa = new Mahasiswa("Shalshabilla", "230102043", "Komputer dan Bisnis");
-$mahasiswa->tampilkanData();
+// Instansiasi objek dari class Mahasiswa
+$mahasiswa = new Mahasiswa();
 ```
 ## Encapsulation
 - Menyembunyikan detail implementasi dan hanya memberikan akses melalui metode tertentu.
@@ -65,18 +58,33 @@ $mahasiswa->tampilkanData();
 - Mengubah atribut dalam class Mahasiswa menjadi private adalah penerapan prinsip encapsulation dalam OOP. Dengan menjadikan atribut private, akses langsung ke atribut tersebut dari luar class dibatasi. Ini melindungi data dari modifikasi yang tidak diinginkan dan memastikan bahwa data hanya dapat diubah melalui metode yang telah disediakan oleh class. Encapsulation meningkatkan keamanan dan integritas data dengan mengontrol bagaimana atribut diakses dan dimodifikasi.
   
 ## Membuat metode getter dan setter untuk atribut nama, nim, dan jurusan.
-# Setter
-```sh
-$mahasiswa1->setNama("Shalshabilla");
-```
-# Getter 
-```sh
-// Tampilkan data
-public function tampilkanData() {
-    echo "Nama: " . $this->getNama() . "<br>";
-    echo "Nim: " . $this->getNIM() . "<br>";
-    echo "Jurusan: " . $this->getJurusan() . "<br>";
+// Getter dan Setter untuk atribut nama
+public function getNama() {
+    return $this->nama;
 }
+
+public function setNama($nama) {
+    $this->nama = $nama;
+}
+
+// Getter dan Setter untuk atribut nim
+public function getNIM() {
+    return $this->nim;
+}
+
+public function setNIM($nim) {
+    $this->nim = $nim;
+}
+
+// Getter dan Setter untuk atribut jurusan
+public function getJurusan() {
+    return $this->jurusan;
+}
+
+public function setJurusan($jurusan) {
+    $this->jurusan = $jurusan;
+}
+
 ```
 - Metode getter dan setter adalah cara untuk memberikan akses terbatas ke atribut yang bersifat private. Getter digunakan untuk membaca nilai atribut, sementara setter digunakan untuk mengubahnya. Dengan menyediakan metode ini, kita menjaga kontrol penuh terhadap bagaimana data diakses dan dimodifikasi, sekaligus menjaga konsistensi dan validitas data.
 
@@ -86,7 +94,6 @@ public function tampilkanData() {
 ## Membuat class Dosen yang mewarisi class Pengguna dan tambahkan atribut Mata Kuliah
 ```sh
 class Dosen extends Pengguna {
-
 private $mataKuliah;
 ```
 - Mewarisi class Pengguna dalam class Dosen menunjukkan penerapan inheritance, di mana Dosen mewarisi atribut dan metode dari Pengguna. Selain itu, class Dosen juga menambahkan atribut mataKuliah yang khusus untuk kebutuhan dosen. Ini memperlihatkan kemampuan untuk memperluas fungsionalitas class dasar dengan menambahkan atribut atau metode tambahan, sambil tetap memanfaatkan fitur yang sudah ada dari class dasar.
@@ -94,9 +101,7 @@ private $mataKuliah;
 ## Instansiasi objek dari class Dosen dan tampilkan data dosen.
 ```sh
 // Instansiasi objek Dosen
-$dosen = new Dosen("Pak Abda'u", "Pemrograman Web 2");
-
-$dosen->tampilkanData();
+$dosen = new Dosen();
 ```
 - Instansiasi objek dari class Dosen dan menggunakan metode tampilkanDosen() untuk menampilkan data menunjukkan bagaimana inheritance memungkinkan class turunan (Dosen) untuk menggunakan metode dari class dasar (Pengguna) serta menambahkan fungsionalitas baru. Proses ini menunjukkan bagaimana class turunan dapat memanfaatkan fitur dari class dasar sambil memperkenalkan atribut dan metode baru yang spesifik untuk kebutuhan masing-masing class.
   
@@ -145,9 +150,13 @@ $mahasiswa->aksesFitur(); // Output: Mengakses fitur mahasiswa.
 - Menyembunyikan detail implementasi dan hanya menampilkan fungsi penting.
 # Buat class abstrak Pengguna dengan metode abstrak aksesFitur().
 ```sh
-  class Pengguna {
-    public function aksesFitur() {
-        echo "Mengakses fitur umum.<br>";
+  // Class abstrak Pengguna
+abstract class Pengguna {
+    protected $nama;
+
+    // Metode abstrak
+    abstract public function aksesFitur();
+}
 ```
 - Membuat class abstrak Pengguna dengan metode abstrak aksesFitur() adalah langkah awal dalam menerapkan prinsip abstraction. Class abstrak adalah class yang tidak dapat diinstansiasi dan sering digunakan sebagai template atau blueprint untuk class-class turunan. Metode abstrak dalam class ini hanya dideklarasikan tanpa implementasi dan harus diimplementasikan oleh class-class yang mewarisi class abstrak tersebut. Abstraction memungkinkan kita untuk menyembunyikan detail implementasi dan hanya menyediakan antarmuka yang harus diikuti oleh class turunan.
   
@@ -155,17 +164,17 @@ $mahasiswa->aksesFitur(); // Output: Mengakses fitur mahasiswa.
 
 - implementasi kelas dosen
 ```sh
-class Dosen extends Pengguna {
-    public function aksesFitur() {
-        echo "Mengakses fitur dosen.<br>";
-    }
-}
-```
-- implementasi dari kelas mahasiswa
-```sh
+// Class Mahasiswa yang mengimplementasikan metode abstrak
 class Mahasiswa extends Pengguna {
     public function aksesFitur() {
-        echo "Mengakses fitur mahasiswa.<br>";
+        echo "Mahasiswa $this->nama mengakses fitur mahasiswa.<br>";
+    }
+}
+
+// Class Dosen yang mengimplementasikan metode abstrak
+class Dosen extends Pengguna {
+    public function aksesFitur() {
+        echo "Dosen $this->nama mengakses fitur dosen.<br>";
     }
 }
 ```
@@ -173,13 +182,12 @@ class Mahasiswa extends Pengguna {
   
 ## Demonstrasikan dengan memanggil metode aksesFitur() dari objek yang diinstansiasi.
 ```sh
-<?php
-$dosen = new Dosen();
-$mahasiswa = new Mahasiswa();
+// Demonstrasi abstraksi
+$mahasiswa = new Mahasiswa("Shalshabilla");
+$dosen = new Dosen("Pak Abda'u");
 
-$dosen->aksesFitur(); // Output: Mengakses fitur dosen.
-$mahasiswa->aksesFitur(); // Output: Mengakses fitur mahasiswa.
-?>
+$mahasiswa->aksesFitur(); // Output: Mahasiswa Shalshabilla mengakses fitur mahasiswa.
+$dosen->aksesFitur(); // Output: Dosen Pak Abda'u mengakses fitur dosen.
 ```
 - Mendemonstrasikan dengan memanggil metode aksesFitur() dari objek yang diinstansiasi dari class Mahasiswa dan Dosen memperlihatkan bagaimana abstraction memungkinkan objek untuk menggunakan metode yang didefinisikan dalam class abstrak dengan implementasi yang berbeda. Ini menunjukkan penerapan prinsip abstraction secara nyata, di mana objek dari class turunan mematuhi kontrak metode abstrak dan menyajikan implementasi spesifik sesuai dengan tipe objeknya. Demonstrasi ini mempertegas bagaimana abstraction menyederhanakan penggunaan class dengan menyembunyikan detail implementasi dan hanya mengekspose metode yang diperlukan
   
