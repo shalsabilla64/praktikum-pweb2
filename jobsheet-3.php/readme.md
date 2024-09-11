@@ -151,9 +151,41 @@ class OfflineCourse extends Course {
     }
 }
 ```
+## Output Jobsheet 3
+1. Inheritance<br>
+![Screenshot (41)](https://github.com/user-attachments/assets/0cf4b33c-dbf2-4736-b878-68ba33a697d2)
+2. Polymorphism<br>
+![Screenshot (42)](https://github.com/user-attachments/assets/e91d4a29-d99b-4898-90a1-7cb6c9f23845)
+3. Polymorphism<br>
+![Screenshot (43)](https://github.com/user-attachments/assets/414b5ce5-a267-4163-bf8f-f5500c0d21cd)
+4. Abstraction<br>
+![Screenshot (44)](https://github.com/user-attachments/assets/b410c11f-0e41-41e2-b0b3-0630bbff2aff)
 
 
 
+## Tugas 3
+## Implementasikan kelas Person sebagai induk dari Dosen dan Mahasiswa.
+```sh
+// Kelas Person sebagai induk
+class Person {
+    protected $name;
+
+    public function __construct($name) {
+        $this->name = $name;
+    }
+
+    // Metode yang akan dioverride oleh subclass
+    public function getRole() {
+        return "Person";
+    }
+
+    // Metode untuk mendapatkan nama
+    public function getName() {
+        return $this->name;
+    }
+}
+```
+## Gunakan konsep Inheritance untuk membuat hierarki kelas yang memungkinkan Dosen dan Mahasiswa memiliki atribut dan metode yang sesuai dengan perannya.
 
 
 
