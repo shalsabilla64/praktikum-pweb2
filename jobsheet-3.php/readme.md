@@ -13,9 +13,8 @@ class Student extends Person {
     // Tambah Atribut Student
     public $studentID;
 
-    // Constructor Student
-    public function __construct($name, $studentID) {
-        parent::__construct($name);
+    // Setter untuk atribut studentID
+    public function setStudentID($studentID) {
         $this->studentID = $studentID;
     }
 
@@ -30,11 +29,10 @@ class Student extends Person {
 ```sh
 // Kelas Teacher mewarisi Person
 class Teacher extends Person {
-    private $teacherID; // Atribut teacherID
+    private $teacherID;
 
-    // Constructor Teacher
-    public function __construct($name, $teacherID) {
-        parent::__construct($name);
+    // Setter untuk atribut teacherID
+    public function setTeacherID($teacherID) {
         $this->teacherID = $teacherID;
     }
 
