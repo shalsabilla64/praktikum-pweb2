@@ -50,15 +50,15 @@ class Teacher extends Person {
 ## Override metode getName() di kelas Student dan Teacher untuk menampilkan format berbeda.
 - metode getName() di kelas Student
 ```sh
- // Override metode getName() untuk Student
-    public function getName() {
-        return "Student Name: " . $this->name;
-```
-- metode getName() di kelas Teacher
-```sh
+// Override metode getName() untuk Student
+public function getName() {
+    return "Student Name: " . $this->name;
+}
+
 // Override metode getName() untuk Teacher
-    public function getName() {
-        return "Teacher Name: " . $this->name;
+public function getName() {
+    return "Teacher Name: " . $this->name;
+}
 ```
 ## Encapsulation
 ## mengubah atribut name dan studentID dalam kelas Student menjadi private.
@@ -66,41 +66,33 @@ class Teacher extends Person {
 private $studentID; // Atribut studentID diubah menjadi private
 ```
 ## Menambahkan metode setter dan getter untuk mengakses dan mengubah nilai atribut name dan studentID.
-- setter untuk name
 ```sh
+// Setter untuk atribut name
 public function setName($name) {
     $this->name = $name;
 }
-```
-- getter untuk name
-```sh
+
+// Getter untuk name
 public function getName() {
-    return "Student Name: " . $this->name;
+    return "Nama: " . $this->name;
 }
-```
-- setter untuk studentID
-```sh
+// Setter untuk studentID
 public function setStudentID($studentID) {
     $this->studentID = $studentID;
 }
-```
-- getter untuk studentID
-```sh
+
+// Getter untuk studentID
 public function getStudentID() {
     return "Student ID: " . $this->studentID;
-}
 ```
 ## Abstraction
 ## Buat kelas abstrak Course dengan metode abstrak getCourseDetails().
 ```sh
-<?php
-
-// Kelas abstrak Course
 abstract class Course {
     protected $courseName;
 
-    // Konstruktor untuk mengatur nama kursus
-    public function __construct($courseName) {
+    // Setter untuk courseName
+    public function setCourseName($courseName) {
         $this->courseName = $courseName;
     }
 
@@ -111,17 +103,12 @@ abstract class Course {
 ## Buat kelas OnlineCourse dan OfflineCourse yang mengimplementasikan getCourseDetails() untuk memberikan detail yang berbeda.
 ## Membuat kelas OnlineCourse 
 ```sh
- // Metode abstrak untuk mendapatkan detail kursus
-    abstract public function getCourseDetails();
-}
-
-// Kelas OnlineCourse yang mengimplementasikan Course
+ // Kelas OnlineCourse yang mengimplementasikan Course
 class OnlineCourse extends Course {
     private $platform;
 
-    // Konstruktor untuk OnlineCourse
-    public function __construct($courseName, $platform) {
-        parent::__construct($courseName);
+    // Setter untuk platform
+    public function setPlatform($platform) {
         $this->platform = $platform;
     }
 
@@ -137,9 +124,8 @@ class OnlineCourse extends Course {
 class OfflineCourse extends Course {
     private $location;
 
-    // Konstruktor untuk OfflineCourse
-    public function __construct($courseName, $location) {
-        parent::__construct($courseName);
+    // Setter untuk location
+    public function setLocation($location) {
         $this->location = $location;
     }
 
@@ -162,13 +148,15 @@ class OfflineCourse extends Course {
 
 
 ## Tugas 3
-## Implementasikan kelas Person sebagai induk dari Dosen dan Mahasiswa.
+
+## Kelas Person sebagai Kelas Induk
 ```sh
 // Kelas Person sebagai induk
 class Person {
     protected $name;
 
-    public function __construct($name) {
+    // Setter untuk name
+    public function setName($name) {
         $this->name = $name;
     }
 
@@ -183,7 +171,126 @@ class Person {
     }
 }
 ```
-## Gunakan konsep Inheritance untuk membuat hierarki kelas yang memungkinkan Dosen dan Mahasiswa memiliki atribut dan metode yang sesuai dengan perannya.
+##  Kelas Dosen yang Mewarisi Person
+```sh
+// Kelas Dosen mewarisi dari Person
+class Dosen extends Person {
+    private $nidn; // Encapsulation: atribut nidn
+
+    // Setter untuk NIDN
+    public function setNidn($nidn) {
+        $this->nidn = $nidn;
+    }
+
+    public function getNidn() {
+        return $this->nidn;
+    }
+
+    // Override metode getRole
+    public function getRole() {
+        return "dosen";
+    }
+}
+```
+## Kelas Mahasiswa yang Mewarisi Person
+```sh
+// Kelas Mahasiswa mewarisi dari Person
+class Mahasiswa extends Person {
+    private $nim; // Encapsulation: atribut nim
+
+    // Setter untuk NIM
+    public function setNim($nim) {
+        $this->nim = $nim;
+    }
+
+    public function getNim() {
+        return $this->nim;
+    }
+
+    // Override metode getRole
+    public function getRole() {
+        return "mahasiswa";
+    }
+}
+```
+## Kelas Abstrak jurnal
+```sh
+// Kelas abstrak Jurnal
+abstract class Jurnal {
+    protected $judul;
+
+    // Setter untuk judul
+    public function setJudul($judul) {
+        $this->judul = $judul;
+    }
+
+    // Metode abstrak untuk mengelola pengajuan jurnal
+    abstract public function manageSubmission();
+}
+```
+## Kelas JurnalDosen yang Mengimplementasikan Jurnal
+```sh
+// Kelas JurnalDosen yang mengimplementasikan Jurnal
+class JurnalDosen extends Jurnal {
+    private $dosen;
+
+    // Setter untuk Dosen
+    public function setDosen(Dosen $dosen) {
+        $this->dosen = $dosen;
+    }
+
+    // Implementasi metode manageSubmission
+    public function manageSubmission() {
+        return "Jurnal dengan judul '" . $this->judul . "' telah diterima oleh Dosen dengan NIDN " . $this->dosen->getNidn();
+    }
+}
+```
+##  Kelas JurnalMahasiswa yang Mengimplementasikan Jurnal
+```sh
+// Kelas JurnalMahasiswa yang mengimplementasikan Jurnal
+class JurnalMahasiswa extends Jurnal {
+    private $mahasiswa;
+
+    // Setter untuk Mahasiswa
+    public function setMahasiswa(Mahasiswa $mahasiswa) {
+        $this->mahasiswa = $mahasiswa;
+    }
+
+    // Implementasi metode manageSubmission
+    public function manageSubmission() {
+        return "Jurnal dengan judul '" . $this->judul . "' telah diterima oleh Mahasiswa dengan NIM " . $this->mahasiswa->getNim();
+    }
+}
+```
+## Instansi objek dan output
+```sh
+// Membuat objek Dosen
+$dosen = new Dosen();
+$dosen->setName("Bapak Annas");
+$dosen->setNidn("22334455");
+
+// Membuat objek Mahasiswa
+$mahasiswa = new Mahasiswa();
+$mahasiswa->setName("Shalshabilla");
+$mahasiswa->setNim("230102043");
+
+// Membuat objek JurnalDosen
+$jurnalDosen = new JurnalDosen();
+$jurnalDosen->setJudul("Desain Interaksi Pengguna");
+$jurnalDosen->setDosen($dosen);
+
+// Membuat objek JurnalMahasiswa
+$jurnalMahasiswa = new JurnalMahasiswa();
+$jurnalMahasiswa->setJudul("Aplikasi Komputer");
+$jurnalMahasiswa->setMahasiswa($mahasiswa);
+
+// Menampilkan output dalam format deskripsi
+echo $dosen->getName() . " adalah seorang " . $dosen->getRole() . " dengan NIDN " . $dosen->getNidn() . ".<br>";
+echo $mahasiswa->getName() . " adalah seorang " . $mahasiswa->getRole() . " dengan NIM " . $mahasiswa->getNim() . ".<br>";
+echo $jurnalDosen->manageSubmission() . "<br>";
+echo $jurnalMahasiswa->manageSubmission() . "<br>";
+```
+# output tugas 3
 
 
 
