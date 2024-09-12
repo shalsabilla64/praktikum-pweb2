@@ -291,6 +291,7 @@ echo $jurnalDosen->manageSubmission() . "<br>";
 echo $jurnalMahasiswa->manageSubmission() . "<br>";
 ```
 # output tugas 3
+![Screenshot (46)](https://github.com/user-attachments/assets/d85a827e-a089-4d84-ae06-507498c45855)
 
 
 
