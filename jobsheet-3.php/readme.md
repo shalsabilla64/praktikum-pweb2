@@ -63,27 +63,32 @@ public function getName() {
 ## Encapsulation
 ## mengubah atribut name dan studentID dalam kelas Student menjadi private.
 ```sh
-private $studentID; // Atribut studentID diubah menjadi private
+class Student {
+    // Ubah atribut menjadi private
+    private $name;
+    private $studentID;
 ```
 ## Menambahkan metode setter dan getter untuk mengakses dan mengubah nilai atribut name dan studentID.
 ```sh
-// Setter untuk atribut name
+// Metode setter untuk mengatur nilai name
 public function setName($name) {
     $this->name = $name;
 }
 
-// Getter untuk name
+// Metode getter untuk mendapatkan nilai name
 public function getName() {
-    return "Nama: " . $this->name;
+    return $this->name;
 }
-// Setter untuk studentID
+
+// Metode setter untuk mengatur nilai studentID
 public function setStudentID($studentID) {
     $this->studentID = $studentID;
 }
 
-// Getter untuk studentID
+// Metode getter untuk mendapatkan nilai studentID
 public function getStudentID() {
-    return "Student ID: " . $this->studentID;
+    return $this->studentID;
+}
 ```
 ## Abstraction
 ## Buat kelas abstrak Course dengan metode abstrak getCourseDetails().
